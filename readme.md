@@ -37,7 +37,7 @@ removeStorages.indexedDB('want-to-delete');
 
 ## API
 
-### removeStorages(database[, database2, ...])
+### removeStorages(database[, database2, ...]) -> Promise
 
 Remove a localStorage & an indexedDB.
 
@@ -49,17 +49,17 @@ Type: `string`
 Database name on indexedDB.
 
 
-### removeStorages.all(database[, database2, ...])
+### removeStorages.all(database[, database2, ...]) -> Promise
 
 Same as removeStorages()
 
 
-### removeStorages.localStorage()
+### removeStorages.localStorage() -> Promise
 
 Remove a localStorage.
 
 
-### removeStorages.indexedDB(database[, database2, ...])
+### removeStorages.indexedDB(database[, database2, ...]) -> Promise
 
 Remove an indexedDB.
 
