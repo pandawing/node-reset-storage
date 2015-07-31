@@ -8,3 +8,25 @@ it('should one argument', function () {
 it('should three arguments', function () {
   assert.deepEqual(removeStorages('unicorns', 'flower'), ['unicorns', 'flower']);
 });
+
+describe('#localStorage', function () {
+  beforeEach(function (done) {
+    localStorage.clear();
+    done();
+  });
+  it('should save value', function () {
+    var expected = { foo: 'bar', goo: 'nuu' };
+    localStorage.setItem('item', JSON.stringify(expected));
+    assert.deepEqual(expected, JSON.parse(localStorage.getItem('item')));
+  });
+  it('should clear value', function (done) {
+    var input = { foo: 'bar', goo: 'nuu' };
+    localStorage.setItem('item', JSON.stringify(input));
+    removeStorages
+      .localStorage()
+      .then(function () {
+      assert.equal(null, localStorage.getItem('item'));
+      done();
+    });
+  });
+});

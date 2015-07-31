@@ -1,6 +1,6 @@
 {
   "framework": "mocha",
-  "before_tests": "npm run build:test-bundled",
+  "before_tests": "npm run clear:test-bundled && npm run build:test-bundled",
   "src_files": [
     "index.js",
     "test.js"
@@ -10,5 +10,6 @@
     "./node_modules/power-assert/build/power-assert.js",
     "./test-bundled.js"
   ],
-  "launch_in_ci": ["Firefox"]
+  "launch_in_ci": ["Firefox"],
+  "launch_in_dev": ["Firefox", "Chrome", "IE", "Safari"]
 }
