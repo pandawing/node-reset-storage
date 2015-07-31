@@ -46,6 +46,7 @@
   "license": "MIT",
   "repository": "pandawing/node-remove-storages",
   "scripts": {
+    "build:example-bundled": "browserify -t espowerify example/prepare.js > example/prepare-bundled.js && browserify -t espowerify example/remove.js > example/remove-bundled.js",
     "build:test-bundled": "browserify -t espowerify test.js > test-bundled.js",
     "changelog": "touch changelog.md && conventional-changelog -i changelog.md --overwrite --preset angular",
     "clear:test-bundled": "rimraf ./test-bundled.js",
