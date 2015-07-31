@@ -47,7 +47,6 @@
     "git:tag": "git tag v${npm_package_version}",
     "lint": "npm run eclint && npm run eslint",
     "test": "testem",
-    "test:ci": "testem ci",
-    "verify": "npm run lint && npm run test:ci"
+    "verify": "npm run lint && npm run test"
   }
 }
