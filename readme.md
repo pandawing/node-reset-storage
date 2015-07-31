@@ -18,6 +18,9 @@ $ npm install --save remove-storages
 
 ```js
 var removeStorages = require('remove-storages');
+// or
+<script src="build/remove-storages.js"></script>
+
 
 removeStorages('want-to-delete');
 //=> Remove localStorage && Remove 'want-to-delete' indexedDB
