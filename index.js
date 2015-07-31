@@ -1,11 +1,16 @@
 'use strict';
 var Promise = require('es6-promise').Promise;
 
-module.exports = function () {
+function all () {
   var args = Array.prototype.slice.call(arguments);
   return args;
-};
+}
+function removeLocalStorage () {
+  return new Promise(function (resolve) {
+    localStorage.clear();
+    resolve();
+  });
+}
 
-exports.localStorage = function () {
-  return Promise.resolve(localStorage.clear());
-};
+module.exports = all;
+module.exports.localStorage = removeLocalStorage;

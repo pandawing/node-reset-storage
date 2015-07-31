@@ -1,6 +1,6 @@
 {
   "framework": "mocha",
-  "before_tests": "npm run build:test-bundled",
+  "before_tests": "npm run clear:test-bundled && npm run build:test-bundled",
   "src_files": [
     "index.js",
     "test.js"
