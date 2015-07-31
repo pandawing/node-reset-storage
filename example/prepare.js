@@ -11,8 +11,6 @@ var dbName = 'test-item';
 var openRequest = indexedDB.open(dbName, 2);
 var key = 'foo';
 var value = 'bar';
-var expected = {};
-expected[key] = value;
 
 openRequest.onupgradeneeded = function(event) {
   db = event.target.result;
@@ -25,5 +23,5 @@ openRequest.onsuccess = function(event) {
   var transaction = db.transaction(['mystore'], 'readwrite');
   var store = transaction.objectStore('mystore');
 
-  var request = store.put({ mykey: key, myvalue: value });
+  store.put({ mykey: key, myvalue: value });
 };
