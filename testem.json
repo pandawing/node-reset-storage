@@ -1,12 +1,13 @@
 {
   "framework": "mocha",
-  "before_tests": "npm run build:powered-test",
+  "before_tests": "npm run build:test-bundled",
   "src_files": [
-    "powered-test.js"
+    "index.js",
+    "test.js"
   ],
-  "on_exit": "npm run clear:powered-test",
+  "on_exit": "npm run clear:test-bundled",
   "serve_files": [
     "./node_modules/power-assert/build/power-assert.js",
-    "./powered-test.js"
+    "./test-bundled.js"
   ]
 }
