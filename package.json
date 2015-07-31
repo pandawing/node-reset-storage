@@ -55,7 +55,7 @@
     "clear:test-bundled": "rimraf ./test-bundled.js",
     "david": "david update",
     "eclint": "globstar --ignore \"{node_modules/**,test-bundled.js}\" -- eclint check \"*.{js,yml,md,json}\"",
-    "eslint": "eslint --ignore-path .gitignore .",
+    "eslint": "eslint --ignore-path .gitignore example/ index.js test.js",
     "fixpack": "fixpack",
     "git:tag": "git tag v${npm_package_version}",
     "lint": "npm run eclint && npm run eslint",
