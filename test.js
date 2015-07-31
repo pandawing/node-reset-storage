@@ -2,9 +2,9 @@
 var assert = require('power-assert');
 var removeStorages = require('./');
 
-it('should ', function () {
-  assert.strictEqual(removeStorages('unicorns'), 'unicorns & rainbows');
+it('should one argument', function () {
+  assert.deepEqual(removeStorages('unicorns'), ['unicorns']);
 });
-it('should not ', function () {
-  assert.strictEqual(removeStorages('unicorns'), 'unicorns & wrong');
+it('should three arguments', function () {
+  assert.deepEqual(removeStorages('unicorns', 'flower'), ['unicorns', 'flower']);
 });

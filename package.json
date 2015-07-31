@@ -38,13 +38,13 @@
     "changelog": "touch changelog.md && conventional-changelog -i changelog.md --overwrite --preset angular",
     "clear:test-bundled": "rimraf ./test-bundled.js",
     "david": "david update",
-    "eclint": "globstar --ignore \"node_modules/**\" -- eclint check \"*.{js,yml,md,json}\"",
-    "eslint": "eslint .",
+    "eclint": "globstar --ignore \"{node_modules/**,test-bundled.js}\" -- eclint check \"*.{js,yml,md,json}\"",
+    "eslint": "eslint --ignore-path .gitignore .",
     "fixpack": "fixpack",
     "git:tag": "git tag v${npm_package_version}",
     "lint": "npm run eclint && npm run eslint",
-    "test": "exit 0",
-    "verify": "npm run lint",
+    "test": "testem ci",
+    "verify": "npm run lint && npm run test",
     "build:test-bundled": "browserify -t espowerify test.js > test-bundled.js"
   }
 }
