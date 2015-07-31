@@ -9,5 +9,6 @@
   "serve_files": [
     "./node_modules/power-assert/build/power-assert.js",
     "./test-bundled.js"
-  ]
+  ],
+  "launch_in_ci": ["Firefox"]
 }
