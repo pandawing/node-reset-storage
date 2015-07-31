@@ -1,0 +1,12 @@
+{
+  "framework": "mocha",
+  "before_tests": "npm run build:powered-test",
+  "src_files": [
+    "powered-test.js"
+  ],
+  "on_exit": "npm run clear:powered-test",
+  "serve_files": [
+    "./node_modules/power-assert/build/power-assert.js",
+    "./powered-test.js"
+  ]
+}
