@@ -1,6 +1,6 @@
 {
   "name": "remove-storages",
-  "description": "My spectacular module",
+  "description": "Remove storages.",
   "version": "0.0.0",
   "author": {
     "name": "sanemat",
@@ -32,10 +32,19 @@
     "index.js"
   ],
   "keywords": [
-    ""
+    "IndexedDB",
+    "LocalStorage",
+    "delete",
+    "erase",
+    "indexedDB",
+    "indexeddb",
+    "localStorage",
+    "localstorage",
+    "remove",
+    "rm"
   ],
   "license": "MIT",
-  "repository": "sanemat/remove-storages",
+  "repository": "pandawing/node-remove-storages",
   "scripts": {
     "build:test-bundled": "browserify -t espowerify test.js > test-bundled.js",
     "changelog": "touch changelog.md && conventional-changelog -i changelog.md --overwrite --preset angular",
