@@ -40,6 +40,9 @@ describe('#indexedDB', function () {
   // http://dev.classmethod.jp/ria/html5/html5-indexed-database-api/
   it('should save value', function (done) {
     var db;
+    if (!indexedDB) {
+      throw new Error('Your browser doesn\'t support a stable version of IndexedDB.');
+    }
     var openRequest = indexedDB.open('test-item', 2);
     var key = 'foo';
     var value = 'bar';
