@@ -4,6 +4,8 @@
 
 > Remove storages. E.g. localStorage, indexedDB.
 
+`remove-storages` based on [mizchi/items/54f4b0f30990d48a135](http://qiita.com/mizchi/items/54f4b0f30990d48a1350).
+
 
 ## Install
 
@@ -17,31 +19,53 @@ $ npm install --save remove-storages
 ```js
 var removeStorages = require('remove-storages');
 
-removeStorages('unicorns');
-//=> unicorns & rainbows
+removeStorages('want-to-delete');
+//=> Remove localStorage && Remove 'want-to-delete' indexedDB
+
+
+removeStorages.localStorage();
+//=> Remove localStorage
+
+removeStorages.indexedDB('want-to-delete');
+//=> Remove 'want-to-delete' indexedDB
 ```
 
 
 
 ## API
 
-### removeStorages(input, [options])
+### removeStorages(database[, database2, ...])
 
-#### input
+Remove a localStorage & an indexedDB.
+
+#### database
 
 *Required*  
 Type: `string`
 
-Lorem ipsum.
+Database name on indexedDB.
 
-#### options
 
-##### foo
+### removeStorages.all(database[, database2, ...])
 
-Type: `boolean`  
-Default: `false`
+Same as removeStorages()
 
-Lorem ipsum.
+
+### removeStorages.localStorage()
+
+Remove a localStorage.
+
+
+### removeStorages.indexedDB(database[, database2, ...])
+
+Remove an indexedDB.
+
+#### database
+
+*Required*  
+Type: `string`
+
+Database name on indexedDB.
 
 
 ## Changelog
