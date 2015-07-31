@@ -1,6 +1,6 @@
 {
   "name": "remove-storages",
-  "description": "Remove storages.",
+  "description": "Remove storages. E.g. localStorage, indexedDB.",
   "version": "0.0.0",
   "author": {
     "name": "sanemat",

@@ -2,7 +2,7 @@
 
 [![NPM version][npm-image]][npm-url] [![Travis-CI Status][travis-image]][travis-url] [![Daviddm Status][daviddm-image]][daviddm-url]
 
-> Remove storages.
+> Remove storages. E.g. localStorage, indexedDB.
 
 
 ## Install
