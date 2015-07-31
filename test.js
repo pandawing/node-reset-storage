@@ -25,8 +25,8 @@ describe('#localStorage', function () {
     removeStorages
       .localStorage()
       .then(function () {
-        assert.equal(null, localStorage.getItem('item'));
-        done();
+      assert.equal(null, localStorage.getItem('item'));
+      done();
     });
   });
 });
