@@ -14,6 +14,23 @@ function removeLocalStorage () {
     resolve();
   });
 }
+
+function removingDatabaseList (list) {
+  return list.map(function(dbName) {
+    return new Promise(function (resolve, reject) {
+      var req = indexedDB.deleteDatabase(dbName);
+      req.onsuccess = function () {
+        resolve();
+        return;
+      };
+      req.onerror = function (event) {
+        reject(event);
+        return;
+      };
+    });
+  });
+}
+
 function removeIndexedDB () {
   var args = Array.prototype.slice.call(arguments);
   return new Promise(function (resolve, reject) {
@@ -25,19 +42,11 @@ function removeIndexedDB () {
       reject(new Error('#removeIndexedDB requires the target database name.'));
       return;
     }
-    return Promise.all(args.map(function (dbName) {
-      return Promise(function (resolve, reject) {
-        var req = indexedDB.deleteDatabase(dbName);
-        req.onsuccess = function () {
-          resolve();
-          return;
-        };
-        req.onerror = function (event) {
-          reject(event);
-          return;
-        };
-      });
-    }));
+
+    return Promise.all(removingDatabaseList(args))
+      .then(function () {
+      resolve();
+    });
   });
 }
 
