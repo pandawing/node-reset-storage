@@ -14,6 +14,7 @@
     "browserify": "^11.0.1",
     "conventional-changelog": "^0.2.1",
     "david": "^6.1.6",
+    "derequire": "^2.0.0",
     "eclint": "^1.1.0",
     "eslint": "^1.0.0-rc",
     "espowerify": "^0.10.1",
@@ -29,7 +30,8 @@
     "node": ">=0.10.0"
   },
   "files": [
-    "index.js"
+    "index.js",
+    "build"
   ],
   "keywords": [
     "IndexedDB",
@@ -46,13 +48,14 @@
   "license": "MIT",
   "repository": "pandawing/node-remove-storages",
   "scripts": {
+    "build:browser": "npm prune && npm dedupe && browserify --standalone removeStorages ./index.js | derequire > build/remove-storages.js",
     "build:example-bundled": "browserify -t espowerify example/prepare.js > example/prepare-bundled.js && browserify -t espowerify example/remove.js > example/remove-bundled.js",
     "build:test-bundled": "browserify -t espowerify test.js > test-bundled.js",
     "changelog": "touch changelog.md && conventional-changelog -i changelog.md --overwrite --preset angular",
     "clear:test-bundled": "rimraf ./test-bundled.js",
     "david": "david update",
     "eclint": "globstar --ignore \"{node_modules/**,test-bundled.js}\" -- eclint check \"*.{js,yml,md,json}\"",
-    "eslint": "eslint --ignore-path .gitignore .",
+    "eslint": "eslint --ignore-path .gitignore example/ index.js test.js",
     "fixpack": "fixpack",
     "git:tag": "git tag v${npm_package_version}",
     "lint": "npm run eclint && npm run eslint",
