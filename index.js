@@ -3,7 +3,10 @@ var Promise = require('es6-promise').Promise;
 
 function all () {
   var args = Array.prototype.slice.call(arguments);
-  return args;
+  return Promise.all([
+    removeLocalStorage(),
+    removeIndexedDB.apply(null, args)
+  ]);
 }
 function removeLocalStorage () {
   return new Promise(function (resolve) {
