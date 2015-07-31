@@ -7,7 +7,9 @@
     "email": "o.gata.ken@gmail.com",
     "url": "sane.jp"
   },
-  "dependencies": {},
+  "dependencies": {
+    "es6-promise": "^2.3.0"
+  },
   "devDependencies": {
     "browserify": "^11.0.1",
     "conventional-changelog": "*",
@@ -44,7 +46,8 @@
     "fixpack": "fixpack",
     "git:tag": "git tag v${npm_package_version}",
     "lint": "npm run eclint && npm run eslint",
-    "test": "testem ci",
-    "verify": "npm run lint && npm run test"
+    "test": "testem",
+    "test:ci": "testem ci",
+    "verify": "npm run lint && npm run test:ci"
   }
 }
