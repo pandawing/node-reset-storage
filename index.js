@@ -13,4 +13,5 @@ function removeLocalStorage () {
 }
 
 module.exports = all;
+module.exports.all = all;
 module.exports.localStorage = removeLocalStorage;
