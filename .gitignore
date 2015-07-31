@@ -5,3 +5,6 @@ npm-debug.log*
 test-bundled.js
 
 testem.log
+
+example/prepare-bundled.js
+example/remove-bundled.js
