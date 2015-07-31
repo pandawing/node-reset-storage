@@ -43,7 +43,8 @@ describe('#indexedDB', function () {
     if (!indexedDB) {
       throw new Error('Your browser doesn\'t support a stable version of IndexedDB.');
     }
-    var openRequest = indexedDB.open('test-item', 2);
+    var dbName = 'test-item';
+    var openRequest = indexedDB.open(dbName, 2);
     var key = 'foo';
     var value = 'bar';
     var expected = {};
