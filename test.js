@@ -30,3 +30,44 @@ describe('#localStorage', function () {
     });
   });
 });
+
+describe('#indexedDB', function () {
+  beforeEach(function (done) {
+    indexedDB.deleteDatabase('test-item');
+    done();
+  });
+
+  // http://dev.classmethod.jp/ria/html5/html5-indexed-database-api/
+  it('should save value', function (done) {
+    var db;
+    var openRequest = indexedDB.open('test-item', 2);
+    var key = 'foo';
+    var value = 'bar';
+    var expected = {};
+    expected[key] = value;
+
+    openRequest.onupgradeneeded = function(event) {
+      db = event.target.result;
+      var store = db.createObjectStore('mystore', { keyPath: 'mykey'});
+      store.createIndex('myvalueIndex', 'myvalue');
+    };
+
+    openRequest.onsuccess = function(event) {
+      db = event.target.result;
+      var transaction = db.transaction(['mystore'], 'readwrite');
+      var store = transaction.objectStore('mystore');
+
+      var request = store.put({ mykey: key, myvalue: value });
+      request.onsuccess = function () {
+        var transaction = db.transaction(['mystore'], 'readwrite');
+        var store = transaction.objectStore('mystore');
+
+        var request = store.get(key);
+        request.onsuccess = function (event) {
+          assert.equal(value, event.target.result.myvalue);
+          done();
+        };
+      };
+    };
+  });
+});
