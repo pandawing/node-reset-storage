@@ -42,6 +42,7 @@
     "indexeddb",
     "localStorage",
     "localstorage",
+    "remove",
     "reset",
     "rm"
   ],
