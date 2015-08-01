@@ -15,7 +15,7 @@ function resetLocalStorage () {
   });
 }
 
-function removingDatabaseList (list) {
+function deletingDatabaseList (list) {
   return list.map(function(dbName) {
     return new Promise(function (resolve, reject) {
       var req = indexedDB.deleteDatabase(dbName);
@@ -43,7 +43,7 @@ function resetIndexedDB () {
       return;
     }
 
-    return Promise.all(removingDatabaseList(args))
+    return Promise.all(deletingDatabaseList(args))
       .then(function () {
       resolve();
     });
