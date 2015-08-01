@@ -1,45 +1,45 @@
-# remove-storages
+# reset-storage
 
 [![NPM version][npm-image]][npm-url] [![Travis-CI Status][travis-image]][travis-url] [![Daviddm Status][daviddm-image]][daviddm-url]
 
-> Remove storages. E.g. localStorage, indexedDB.
+> Reset storages. E.g. localStorage, indexedDB.
 
-`remove-storages` based on [mizchi/items/54f4b0f30990d48a135](http://qiita.com/mizchi/items/54f4b0f30990d48a1350).
+`reset-storage` based on [mizchi/items/54f4b0f30990d48a135](http://qiita.com/mizchi/items/54f4b0f30990d48a1350).
 
 
 ## Install
 
 ```
-$ npm install --save remove-storages
+$ npm install --save reset-storage
 ```
 
 
 ## Usage
 
 ```js
-var removeStorages = require('remove-storages');
+var resetStorage = require('reset-storage');
 // or
-<script src="build/remove-storages.js"></script>
+<script src="build/reset-storage.js"></script>
 
 
-removeStorages('want-to-delete');
-//=> Remove localStorage && Remove 'want-to-delete' indexedDB
+resetStorage('want-to-delete');
+//=> Reset localStorage && Reset 'want-to-delete' indexedDB
 
 
-removeStorages.localStorage();
-//=> Remove localStorage
+resetStorage.localStorage();
+//=> Reset localStorage
 
-removeStorages.indexedDB('want-to-delete');
-//=> Remove 'want-to-delete' indexedDB
+resetStorage.indexedDB('want-to-delete');
+//=> Reset 'want-to-delete' indexedDB
 ```
 
 
 
 ## API
 
-### removeStorages(database[, database2, ...])
+### resetStorage(database[, database2, ...])
 
-Remove a localStorage & an indexedDB.
+Reset a localStorage & an indexedDB.
 
 #### database
 
@@ -49,19 +49,19 @@ Type: `string`
 Database name on indexedDB.
 
 
-### removeStorages.all(database[, database2, ...])
+### resetStorage.all(database[, database2, ...])
 
-Same as removeStorages()
-
-
-### removeStorages.localStorage()
-
-Remove a localStorage.
+Same as resetStorage()
 
 
-### removeStorages.indexedDB(database[, database2, ...])
+### resetStorage.localStorage()
 
-Remove an indexedDB.
+Reset a localStorage.
+
+
+### resetStorage.indexedDB(database[, database2, ...])
+
+Reset an indexedDB.
 
 #### database
 
@@ -81,9 +81,9 @@ Database name on indexedDB.
 MIT © [sanemat](http://sane.jp)
 
 
-[travis-url]: https://travis-ci.org/pandawing/node-remove-storages
-[travis-image]: https://img.shields.io/travis/pandawing/node-remove-storages/master.svg?style=flat-square&label=travis
-[npm-url]: https://npmjs.org/package/remove-storages
-[npm-image]: https://img.shields.io/npm/v/remove-storages.svg?style=flat-square
-[daviddm-url]: https://david-dm.org/pandawing/node-remove-storages
-[daviddm-image]: https://img.shields.io/david/pandawing/node-remove-storages.svg?style=flat-square
+[travis-url]: https://travis-ci.org/pandawing/node-reset-storage
+[travis-image]: https://img.shields.io/travis/pandawing/node-reset-storage/master.svg?style=flat-square&label=travis
+[npm-url]: https://npmjs.org/package/reset-storage
+[npm-image]: https://img.shields.io/npm/v/reset-storage.svg?style=flat-square
+[daviddm-url]: https://david-dm.org/pandawing/node-reset-storage
+[daviddm-image]: https://img.shields.io/david/pandawing/node-reset-storage.svg?style=flat-square

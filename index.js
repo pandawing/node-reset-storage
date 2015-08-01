@@ -4,11 +4,11 @@ var Promise = require('es6-promise').Promise;
 function all () {
   var args = Array.prototype.slice.call(arguments);
   return Promise.all([
-    removeLocalStorage(),
-    removeIndexedDB.apply(null, args)
+    resetLocalStorage(),
+    resetIndexedDB.apply(null, args)
   ]);
 }
-function removeLocalStorage () {
+function resetLocalStorage () {
   return new Promise(function (resolve) {
     localStorage.clear();
     resolve();
@@ -31,7 +31,7 @@ function removingDatabaseList (list) {
   });
 }
 
-function removeIndexedDB () {
+function resetIndexedDB () {
   var args = Array.prototype.slice.call(arguments);
   return new Promise(function (resolve, reject) {
     if (!indexedDB) {
@@ -39,7 +39,7 @@ function removeIndexedDB () {
       return;
     }
     if (args.length === 0) {
-      reject(new Error('#removeIndexedDB requires the target database name.'));
+      reject(new Error('#resetIndexedDB requires the target database name.'));
       return;
     }
 
@@ -52,5 +52,5 @@ function removeIndexedDB () {
 
 module.exports = all;
 module.exports.all = all;
-module.exports.localStorage = removeLocalStorage;
-module.exports.indexedDB = removeIndexedDB;
+module.exports.localStorage = resetLocalStorage;
+module.exports.indexedDB = resetIndexedDB;
