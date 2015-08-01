@@ -1,3 +1,9 @@
+<a name="1.0.0"></a>
+# 1.0.0 (2015-08-01)
+
+* Change module name to `reset-storage`.
+
+
 <a name="0.2.0"></a>
 # 0.2.0 (2015-07-31)
 
