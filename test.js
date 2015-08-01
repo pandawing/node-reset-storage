@@ -28,8 +28,10 @@ describe('#localStorage', function () {
 
 describe('#indexedDB', function () {
   beforeEach(function (done) {
-    indexedDB.deleteDatabase('test-item');
-    done();
+    var req = indexedDB.deleteDatabase('test-item');
+    req.onsuccess = function() {
+      done();
+    };
   });
 
   // http://dev.classmethod.jp/ria/html5/html5-indexed-database-api/
