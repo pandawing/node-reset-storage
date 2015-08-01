@@ -110,18 +110,26 @@ describe('#indexedDB', function () {
 
       var request = store.put({ mykey: key, myvalue: value });
       request.onsuccess = function () {
-        var transaction = db.transaction(['mystore'], 'readwrite');
-        var store = transaction.objectStore('mystore');
-
-        var request = store.get(key);
-        request.onsuccess = function (event) {
-          assert.equal(value, event.target.result.myvalue);
-          db.close();
-          done();
-        };
-        request.onerror = function (event) {
-          db.close();
+        db.close();
+        var openRequest = indexedDB.open(dbName, 2);
+        openRequest.onerror = function(event) {
           throw new Error(event.toString);
+        };
+        openRequest.onsuccess = function() {
+          var db = openRequest.result;
+          var transaction = db.transaction(['mystore'], 'readwrite');
+          var store = transaction.objectStore('mystore');
+
+          var request = store.get(key);
+          request.onsuccess = function (event) {
+            assert.equal(value, event.target.result.myvalue);
+            db.close();
+            done();
+          };
+          request.onerror = function (event) {
+            db.close();
+            throw new Error(event.toString);
+          };
         };
       };
       request.onerror = function(event) {
