@@ -1,15 +1,15 @@
-(function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.removeStorages = f()}})(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(_dereq_,module,exports){
+(function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.resetStorage = f()}})(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(_dereq_,module,exports){
 'use strict';
 var Promise = _dereq_('es6-promise').Promise;
 
 function all () {
   var args = Array.prototype.slice.call(arguments);
   return Promise.all([
-    removeLocalStorage(),
-    removeIndexedDB.apply(null, args)
+    resetLocalStorage(),
+    resetIndexedDB.apply(null, args)
   ]);
 }
-function removeLocalStorage () {
+function resetLocalStorage () {
   return new Promise(function (resolve) {
     localStorage.clear();
     resolve();
@@ -32,7 +32,7 @@ function removingDatabaseList (list) {
   });
 }
 
-function removeIndexedDB () {
+function resetIndexedDB () {
   var args = Array.prototype.slice.call(arguments);
   return new Promise(function (resolve, reject) {
     if (!indexedDB) {
@@ -40,7 +40,7 @@ function removeIndexedDB () {
       return;
     }
     if (args.length === 0) {
-      reject(new Error('#removeIndexedDB requires the target database name.'));
+      reject(new Error('#resetIndexedDB requires the target database name.'));
       return;
     }
 
@@ -53,8 +53,8 @@ function removeIndexedDB () {
 
 module.exports = all;
 module.exports.all = all;
-module.exports.localStorage = removeLocalStorage;
-module.exports.indexedDB = removeIndexedDB;
+module.exports.localStorage = resetLocalStorage;
+module.exports.indexedDB = resetIndexedDB;
 
 },{"es6-promise":3}],2:[function(_dereq_,module,exports){
 // shim for using process in browser

@@ -1,6 +1,6 @@
 {
-  "name": "remove-storages",
-  "description": "Remove storages. E.g. localStorage, indexedDB.",
+  "name": "reset-storage",
+  "description": "Reset storage. E.g. localStorage, indexedDB.",
   "version": "0.2.0",
   "author": {
     "name": "sanemat",
@@ -42,14 +42,14 @@
     "indexeddb",
     "localStorage",
     "localstorage",
-    "remove",
+    "reset",
     "rm"
   ],
   "license": "MIT",
-  "repository": "pandawing/node-remove-storages",
+  "repository": "pandawing/node-reset-storage",
   "scripts": {
-    "build:browser": "npm prune && npm dedupe && browserify --standalone removeStorages ./index.js | derequire > build/remove-storages.js",
-    "build:example-bundled": "browserify -t espowerify example/prepare.js > example/prepare-bundled.js && browserify -t espowerify example/remove.js > example/remove-bundled.js",
+    "build:browser": "npm prune && npm dedupe && browserify --standalone resetStorage ./index.js | derequire > build/reset-storage.js",
+    "build:example-bundled": "browserify -t espowerify example/prepare.js > example/prepare-bundled.js && browserify -t espowerify example/reset.js > example/reset-bundled.js",
     "build:test-bundled": "browserify -t espowerify test.js > test-bundled.js",
     "changelog": "touch changelog.md && conventional-changelog -i changelog.md --overwrite --preset angular",
     "clear:test-bundled": "rimraf ./test-bundled.js",
