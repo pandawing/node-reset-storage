@@ -27,6 +27,7 @@ describe('#localStorage', function () {
 });
 
 describe('#indexedDB', function () {
+  var db;
   beforeEach(function (done) {
     var req = indexedDB.deleteDatabase('test-item');
     req.onsuccess = function() {
@@ -36,7 +37,6 @@ describe('#indexedDB', function () {
 
   // http://dev.classmethod.jp/ria/html5/html5-indexed-database-api/
   it('should save value', function (done) {
-    var db;
     if (!indexedDB) {
       throw new Error('Your browser doesn\'t support a stable version of IndexedDB.');
     }
@@ -56,8 +56,8 @@ describe('#indexedDB', function () {
       store.createIndex('myvalueIndex', 'myvalue');
     };
 
-    openRequest.onsuccess = function(event) {
-      db = event.target.result;
+    openRequest.onsuccess = function() {
+      db = openRequest.result;
       var transaction = db.transaction(['mystore'], 'readwrite');
       var store = transaction.objectStore('mystore');
 
@@ -69,13 +69,16 @@ describe('#indexedDB', function () {
         var request = store.get(key);
         request.onsuccess = function (event) {
           assert.equal(value, event.target.result.myvalue);
+          db.close();
           done();
         };
         request.onerror = function (event) {
+          db.close();
           throw new Error(event.toString);
         };
       };
       request.onerror = function(event) {
+        db.close();
         throw new Error(event.toString);
       };
     };
