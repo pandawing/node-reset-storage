@@ -2,6 +2,8 @@
 var assert = require('power-assert');
 var resetStorage = require('./');
 
+var dbName = 'test-item';
+
 describe('#localStorage', function () {
   beforeEach(function (done) {
     localStorage.clear();
@@ -36,7 +38,6 @@ describe('#indexedDB', function () {
     if (!indexedDB) {
       throw new Error('Your browser doesn\'t support a stable version of IndexedDB.');
     }
-    var dbName = 'test-item';
     var openRequest = indexedDB.open(dbName, 2);
     var key = 'foo';
     var value = 'bar';
