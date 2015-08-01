@@ -7,4 +7,4 @@ test-bundled.js
 testem.log
 
 example/prepare-bundled.js
-example/remove-bundled.js
+example/reset-bundled.js

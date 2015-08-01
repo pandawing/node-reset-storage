@@ -1,6 +1,6 @@
 'use strict';
 var assert = require('power-assert');
-var removeStorages = require('./');
+var resetStorage = require('./');
 
 describe('#localStorage', function () {
   beforeEach(function (done) {
@@ -15,7 +15,7 @@ describe('#localStorage', function () {
   it('should clear value', function (done) {
     var input = { foo: 'bar', goo: 'nuu' };
     localStorage.setItem('item', JSON.stringify(input));
-    removeStorages
+    resetStorage
       .localStorage()
       .then(function () {
       assert.equal(null, localStorage.getItem('item'));
