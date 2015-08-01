@@ -46,6 +46,10 @@ describe('#indexedDB', function () {
     var expected = {};
     expected[key] = value;
 
+    openRequest.onerror = function(event) {
+      throw new Error(event.toString);
+    };
+
     openRequest.onupgradeneeded = function(event) {
       db = event.target.result;
       var store = db.createObjectStore('mystore', { keyPath: 'mykey'});
@@ -67,6 +71,12 @@ describe('#indexedDB', function () {
           assert.equal(value, event.target.result.myvalue);
           done();
         };
+        request.onerror = function (event) {
+          throw new Error(event.toString);
+        };
+      };
+      request.onerror = function(event) {
+        throw new Error(event.toString);
       };
     };
   });
