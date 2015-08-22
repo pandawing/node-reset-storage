@@ -8,16 +8,16 @@
     "url": "sane.jp"
   },
   "dependencies": {
-    "es6-promise": "^2.3.0"
+    "es6-promise": "^3.0.2"
   },
   "devDependencies": {
     "browserify": "^11.0.1",
-    "conventional-changelog": "^0.2.1",
+    "conventional-changelog": "^0.4.2",
     "david": "^6.1.6",
     "derequire": "^2.0.0",
     "eclint": "^1.1.0",
     "eslint": "^1.0.0-rc",
-    "espowerify": "^0.10.1",
+    "espowerify": "^1.0.0",
     "fixpack": "^2.2.0",
     "globstar": "^1.0.0",
     "mocha": "^2.2.5",
