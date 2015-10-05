@@ -45,8 +45,8 @@ function resetIndexedDB () {
 
     return Promise.all(deletingDatabaseList(args))
       .then(function () {
-      resolve();
-    });
+        resolve();
+      });
   });
 }
 
