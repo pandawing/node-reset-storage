@@ -20,9 +20,9 @@ describe('#localStorage', function () {
     resetStorage
       .localStorage()
       .then(function () {
-      assert.equal(null, localStorage.getItem('item'));
-      done();
-    });
+        assert.equal(null, localStorage.getItem('item'));
+        done();
+      });
   });
 });
 
