@@ -1,3 +1,9 @@
+<a name="1.0.2"></a>
+## [1.0.2](https://github.com/pandawing/node-reset-storage/compare/v1.0.1...v1.0.2) (2015-10-05)
+
+* Update dependencies
+
+
 <a name="1.0.1"></a>
 ## 1.0.1 (2015-08-22)
 
