@@ -13,7 +13,6 @@
   "devDependencies": {
     "browserify": "^11.0.1",
     "conventional-changelog": "^0.4.2",
-    "david": "^6.1.6",
     "derequire": "^2.0.0",
     "eclint": "^1.1.0",
     "eslint": "^1.0.0-rc",
@@ -54,7 +53,6 @@
     "build:test-bundled": "browserify -t espowerify test.js > test-bundled.js",
     "changelog": "touch changelog.md && conventional-changelog -i changelog.md --overwrite --preset angular",
     "clear:test-bundled": "rimraf ./test-bundled.js",
-    "david": "david update",
     "eclint": "globstar --ignore \"{node_modules/**,test-bundled.js}\" -- eclint check \"*.{js,yml,md,json}\"",
     "eslint": "eslint --ignore-path .gitignore example/ index.js test.js",
     "fixpack": "fixpack",
