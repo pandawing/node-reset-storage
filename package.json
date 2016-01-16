@@ -23,7 +23,7 @@
     "npm-check-updates": "^2.3.0",
     "power-assert": "^1.1.0",
     "rimraf": "^2.4.2",
-    "testem": "^0.9.1",
+    "testem": "^1.0.0",
     "touch": "^1.0.0"
   },
   "engines": {
